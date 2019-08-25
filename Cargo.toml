@@ -2,7 +2,7 @@
 name = "geonamestools"
 version = "0.1.0"
 authors = ["Davide Del Papa <davidedelpapa@gmail.com>"]
-license = "MIT or Apache-2.0"
+license = "MIT"
 description = "Library and CLI tool to use data from GeoNames.org"
 readme = "README.md"
 homepage = "https://github.com/davidedelpapa/geonamestools"
