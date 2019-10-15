@@ -2,7 +2,7 @@
 
 Library and CLI tool to use data from [GeoNames.org](http://www.geonames.org/)
 
-## CLI
+## CLI (standard)
 
 For now it can process in a simple way the cities data(for example cities-1000) and transfer data to a sqlite DB.
 
@@ -15,6 +15,20 @@ cargo run ./test_data/test_cities.txt test.db
 ```
 
 The line above transfers the data in the test_file present in *test_cities.txt* to the database  *test.db* (creating it, if it does not exist).
+
+### Beware of times!
+
+Right now, on my generic laptop, it took 11 minutes to parse all of cities1000!
+
+## CLI (MySQL)
+
+It is a porting to MySQL of the main CLI
+
+Example Usage:
+
+``` sh
+cargo run --bin gntools-mysql  ./test_data/test_cities.txt
+```
 
 ## Library
 

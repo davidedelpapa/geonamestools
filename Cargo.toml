@@ -10,6 +10,8 @@ repository = "https://github.com/davidedelpapa/geonamestools"
 keywords = ["cli", "gis", "geonames", "science"]
 categories = ["science"]
 edition = "2018"
+default-run = "gntools"
+
 
 [lib]
 name = "geonames"
@@ -17,7 +19,11 @@ path = "src/lib.rs"
 
 [[bin]]
 name = "gntools"
-path = "src/bin.rs"
+path = "src/bin/bin.rs"
+
+[[bin]]
+name = "gntools-mysql"
+path = "src/bin/bin-mysql.rs"
 
 [dependencies]
 csv = "1.1"
@@ -25,4 +31,5 @@ structopt = "0.2.10"
 serde = "1"
 serde_derive = "1"
 rusqlite = "0.20"
+mysql = "*"
 chrono = { version = "0.4", features = ["serde"] }
