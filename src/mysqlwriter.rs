@@ -1,8 +1,19 @@
 use crate::parser::Parser;
 use mysql::{error::Result, Pool};
 
-pub fn write_mysql(input: Parser) -> Result<()> {
-    let pool = Pool::new("mysql://root:passwd@172.17.0.2:3306/geodb")?;
+pub fn write_mysql(
+    input: Parser,
+    user: String,
+    password: String,
+    host: String,
+    port: i32,
+    database: String,
+) -> Result<()> {
+    //let pool = Pool::new("mysql://root:passwd@172.17.0.2:3306/geodb")?;
+    let pool = Pool::new(format!(
+        "mysql://{}:{}@{}:{}/{}",
+        user, password, host, port, database
+    ))?;
 
     pool.prep_exec(
         r"CREATE TABLE IF NOT EXISTS cities (
@@ -76,7 +87,7 @@ pub fn write_mysql(input: Parser) -> Result<()> {
                 "dem" => &result.dem,
                 "timezone" => &result.timezone,
                 "modification_date" => &result.modification_date.to_string(),
-            }
+            },
         )?;
     }
     Ok(())
