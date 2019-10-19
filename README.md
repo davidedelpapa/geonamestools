@@ -27,8 +27,9 @@ It is a porting to MySQL of the main CLI
 Example Usage:
 
 ``` sh
-cargo run --bin gntools-mysql  ./test_data/test_cities.txt
+cargo run --bin gntools-mysql -- -u root -p passwd -h 172.17.0.2 -P 3306 -d geodb ./test_data/test_cities.txt
 ```
+(I'm using docker!)
 
 ## Library
 
